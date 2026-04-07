@@ -1,0 +1,77 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Hiragino Sans", "Noto Sans JP", sans-serif;
+  background: #fff5f9;
+  color: #2d2d2d;
+  min-height: 100vh;
+  padding: 32px 16px 64px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+header h1 {
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  color: #d63384;
+  margin-bottom: 8px;
+}
+
+header p {
+  font-size: 0.95rem;
+  color: #888;
+}
+
+header a {
+  color: #d63384;
+  text-decoration: none;
+}
+
+header a:hover {
+  text-decoration: underline;
+}
+
+#button-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.voice-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 8px;
+  border: 2px solid #ffd6e8;
+  border-radius: 14px;
+  background: #fff;
+  color: #2d2d2d;
+  font-size: 1rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.12s ease, border-color 0.12s ease, transform 0.1s ease;
+  user-select: none;
+}
+
+.voice-btn:hover {
+  background: #fff0f6;
+  border-color: #ff6b9d;
+}
+
+.voice-btn:active {
+  transform: scale(0.95);
+}
+
+.voice-btn.playing {
+  background: #ff6b9d;
+  border-color: #ff6b9d;
+  color: #fff;
+}

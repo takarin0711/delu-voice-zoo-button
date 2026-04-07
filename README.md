@@ -1,0 +1,88 @@
+# Delu Voice Zoo Button
+
+DELUTAYA（[@delutaya](https://www.youtube.com/@delutaya)）の動物ボイスを楽しむプロジェクトページです。
+
+**ウェブページ版**: https://takarin0711.github.io/delu-voice-zoo-button/
+
+## 機能
+
+### ウェブページ版
+- ブラウザで直接アクセスして音声を再生できる
+- 30種類の動物ボイスがグリッド表示される
+
+### Chrome拡張機能版
+- `https://www.youtube.com/@delutaya` のチャンネルページにボタンを表示
+- 「🎵 Voice ▼」ボタンをクリックするとドロップダウンパネルが開く
+- 30種類の動物ボイスから好きな音声を選んで再生できる
+- パネルは外側クリックまたはボタン再クリックで閉じる
+
+## インストール方法
+
+1. このリポジトリのファイルをダウンロードする
+
+   **方法A：ZIPでダウンロード（gitが不要）**
+   - 上部の「delu-script」をクリック
+   - 右上の緑色の「Code」ボタンをクリック
+   - 「Download ZIP」を選択してZIPファイルをダウンロード
+   - ダウンロードしたZIPファイルを展開（解凍）する
+
+   **方法B：gitコマンドでクローン**
+   ```
+   git clone https://github.com/takarin0711/delu-voice-zoo-button.git
+   ```
+2. Chromeで `chrome://extensions` を開く
+3. 右上の「デベロッパーモード」をオンにする
+4. 「パッケージ化されていない拡張機能を読み込む」をクリックし、「delu-voice-zoo-button」フォルダを選択する
+
+## 使い方
+
+1. `https://www.youtube.com/@delutaya` を開く
+2. チャンネルヘッダーのSubscribeボタン付近に「🎵 Voice ▼」ボタンが表示される
+3. ボタンをクリックするとドロップダウンパネルが開く
+4. 聴きたい動物ボイスを選ぶと音声が再生される
+
+## ファイル構成
+
+```
+delu-voice-zoo-button/
+├── index.html      # ウェブページ版
+├── page.js         # ウェブページ版のスクリプト
+├── page.css        # ウェブページ版のスタイル
+├── manifest.json   # 拡張機能の設定
+├── content.js      # 拡張機能: ボタン注入・ナビゲーション管理・音声再生
+├── styles.css      # 拡張機能: ボタン・ドロップダウンのスタイル
+├── voice/          # 音声ファイル（ウェブページ・拡張機能で共用）
+│   ├── 01_duck.mp3
+│   ├── 02_sheep.mp3
+│   └── ...（30種類）
+└── README.md
+```
+
+## 音声の追加・変更
+
+1. `voice/` フォルダにmp3ファイルを追加する
+2. `content.js` と `page.js` それぞれの `SOUNDS` 配列にエントリを追加する
+
+```js
+const SOUNDS = [
+  { label: "🦆 アヒル", file: "voice/01_duck.mp3" },
+  // 例: ここに追加
+  { label: "🐙 タコ",   file: "voice/31_octopus.mp3" },
+];
+```
+
+## 元ネタ
+
+面白いから見てね: https://www.youtube.com/watch?v=E0QUFBQphsM
+
+## 更新履歴
+
+### v0.3.0
+- GitHub Pages ウェブページ版を追加（`index.html`, `page.js`, `page.css`）
+
+### v0.2.0
+- ドロップダウンパネルUIを実装（30種類の動物ボイスを選択再生）
+- 音声ファイルを `voice/` フォルダに整理
+
+### v0.1.0
+- 初回リリース（単一ボタンでアヒル音声を再生）
