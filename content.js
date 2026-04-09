@@ -1,5 +1,7 @@
 // SOUNDS is defined in sounds.js, loaded before this script via manifest.json
 
+let currentAudio = null;
+
 const SELECTORS = [
   "#channel-header-links",
   "ytd-channel-header-renderer #buttons",
@@ -39,7 +41,12 @@ function waitForElement(selectors, callback, timeout = 15000) {
 
 function playSound(file) {
   try {
+    if (currentAudio) {
+      currentAudio.pause();
+      currentAudio.currentTime = 0;
+    }
     const audio = new Audio(chrome.runtime.getURL(file));
+    currentAudio = audio;
     audio.play();
   } catch (e) {
     // Extension was reloaded — remove stale UI so the user knows to refresh
