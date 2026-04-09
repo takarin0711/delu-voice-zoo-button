@@ -61,6 +61,7 @@ delu-voice-zoo-button/
 ├── manifest.json   # 拡張機能の設定
 ├── content.js      # 拡張機能: ボタン注入・ナビゲーション管理・音声再生
 ├── styles.css      # 拡張機能: ボタン・ドロップダウンのスタイル
+├── icon/           # 拡張機能アイコン（16x16, 48x48, 128x128）
 ├── voice/          # 音声ファイル（ウェブページ・拡張機能で共用）
 │   ├── 01_duck.mp3
 │   ├── 02_sheep.mp3
@@ -86,6 +87,9 @@ const SOUNDS = [
 面白いから見てね: https://www.youtube.com/watch?v=E0QUFBQphsM
 
 ## 更新履歴
+
+### v0.3.3
+- `manifest.json` にアイコンを追加（`chrome://extensions` でアイコンが表示されるように）
 
 ### v0.3.2
 - `content.js` に `currentAudio` 管理を追加し、音声の重複再生を修正
