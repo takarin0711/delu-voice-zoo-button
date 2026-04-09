@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Delu Voice Zoo Button",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Adds a voice button to Delutaya's YouTube channel page",
   "web_accessible_resources": [
     {
@@ -12,7 +12,7 @@
   "content_scripts": [
     {
       "matches": ["https://www.youtube.com/@delutaya*"],
-      "js": ["content.js"],
+      "js": ["sounds.js", "content.js"],
       "css": ["styles.css"],
       "run_at": "document_idle"
     }

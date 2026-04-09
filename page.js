@@ -1,35 +1,4 @@
-const SOUNDS = [
-  { label: "🦆 アヒル",         file: "voice/01_duck.mp3" },
-  { label: "🐑 ヒツジ",         file: "voice/02_sheep.mp3" },
-  { label: "🐐 ヤギ",           file: "voice/03_goat.mp3" },
-  { label: "🦊 キツネ",         file: "voice/04_fox.mp3" },
-  { label: "🐧 ペンギン",       file: "voice/05_penguin.mp3" },
-  { label: "🦭 セイウチ",       file: "voice/06_walrus.mp3" },
-  { label: "🐻‍❄️ ホッキョクグマ", file: "voice/07_polar_bear.mp3" },
-  { label: "🦌 トナカイ",       file: "voice/08_reindeer.mp3" },
-  { label: "🦜 オウム",         file: "voice/09_parrot.mp3" },
-  { label: "🦩 フラミンゴ",     file: "voice/10_flamingo.mp3" },
-  { label: "🦉 フクロウ",       file: "voice/11_owl.mp3" },
-  { label: "🦅 ワシ",           file: "voice/12_eagle.mp3" },
-  { label: "🦁 ライオン",       file: "voice/13_lion.mp3" },
-  { label: "🦏 サイ",           file: "voice/14_rhinoceros.mp3" },
-  { label: "🐘 ゾウ",           file: "voice/15_elephant.mp3" },
-  { label: "🦛 カバ",           file: "voice/16_hippopotamus.mp3" },
-  { label: "🐻 クマ",           file: "voice/17_bear.mp3" },
-  { label: "🐯 トラ",           file: "voice/18_tiger.mp3" },
-  { label: "🦍 ゴリラ",         file: "voice/19_gorilla.mp3" },
-  { label: "🐼 パンダ",         file: "voice/20_panda.mp3" },
-  { label: "🦥 ナマケモノ",     file: "voice/21_sloth.mp3" },
-  { label: "🐸 カエル",         file: "voice/22_frog.mp3" },
-  { label: "🐶 イヌ",           file: "voice/23_dog.mp3" },
-  { label: "🐱 ネコ",           file: "voice/24_cat.mp3" },
-  { label: "🐰 ウサギ",         file: "voice/25_rabbit.mp3" },
-  { label: "🐢 カメ",           file: "voice/26_turtle.mp3" },
-  { label: "🐴 ウマ",           file: "voice/27_horse.mp3" },
-  { label: "🐮 ウシ",           file: "voice/28_cow.mp3" },
-  { label: "🐹 ハムスター",     file: "voice/29_hamster.mp3" },
-  { label: "🐌 カタツムリ",     file: "voice/30_snail.mp3" },
-];
+// SOUNDS is defined in sounds.js, loaded before this script via index.html
 
 let currentAudio = null;
 

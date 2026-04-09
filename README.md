@@ -57,6 +57,7 @@ delu-voice-zoo-button/
 ├── index.html      # ウェブページ版
 ├── page.js         # ウェブページ版のスクリプト
 ├── page.css        # ウェブページ版のスタイル
+├── sounds.js       # 音声データ定義（拡張機能・ウェブページ共用）
 ├── manifest.json   # 拡張機能の設定
 ├── content.js      # 拡張機能: ボタン注入・ナビゲーション管理・音声再生
 ├── styles.css      # 拡張機能: ボタン・ドロップダウンのスタイル
@@ -70,7 +71,7 @@ delu-voice-zoo-button/
 ## 音声の追加・変更
 
 1. `voice/` フォルダにmp3ファイルを追加する
-2. `content.js` と `page.js` それぞれの `SOUNDS` 配列にエントリを追加する
+2. `sounds.js` の `SOUNDS` 配列にエントリを追加する
 
 ```js
 const SOUNDS = [
@@ -85,6 +86,9 @@ const SOUNDS = [
 面白いから見てね: https://www.youtube.com/watch?v=E0QUFBQphsM
 
 ## 更新履歴
+
+### v0.3.1
+- `sounds.js` を追加し、`SOUNDS` 配列を `content.js` / `page.js` から一元化
 
 ### v0.3.0
 - GitHub Pages ウェブページ版を追加（`index.html`, `page.js`, `page.css`）
