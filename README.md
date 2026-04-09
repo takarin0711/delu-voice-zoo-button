@@ -87,6 +87,9 @@ const SOUNDS = [
 
 ## 更新履歴
 
+### v0.3.2
+- `content.js` に `currentAudio` 管理を追加し、音声の重複再生を修正
+
 ### v0.3.1
 - `sounds.js` を追加し、`SOUNDS` 配列を `content.js` / `page.js` から一元化
 
