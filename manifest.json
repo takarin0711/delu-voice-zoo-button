@@ -12,7 +12,7 @@
   "content_scripts": [
     {
       "matches": ["https://www.youtube.com/@delutaya*"],
-      "js": ["content.js"],
+      "js": ["sounds.js", "content.js"],
       "css": ["styles.css"],
       "run_at": "document_idle"
     }
