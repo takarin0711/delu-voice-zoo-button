@@ -149,5 +149,25 @@ if (isDelutayaPage()) {
   waitForElement(SELECTORS, injectButton);
 }
 
-// YouTube SPA navigation
-window.addEventListener("yt-navigate-finish", onNavigate);
+// YouTube SPA navigation — listen to multiple events for resilience
+// yt-navigate-finish may not fire in all YouTube versions/configurations
+let lastNavigateUrl = location.href;
+
+function handleNavigate() {
+  const currentUrl = location.href;
+  if (currentUrl === lastNavigateUrl) return;
+  lastNavigateUrl = currentUrl;
+  onNavigate();
+}
+
+window.addEventListener("yt-navigate-finish", handleNavigate);
+window.addEventListener("yt-page-data-updated", handleNavigate);
+window.addEventListener("popstate", handleNavigate);
+
+// URL polling fallback: detect navigation even if none of the above events fire
+let pollingTimer = setInterval(() => {
+  if (location.href !== lastNavigateUrl) {
+    lastNavigateUrl = location.href;
+    onNavigate();
+  }
+}, 1000);
