@@ -42,6 +42,13 @@ header a:hover {
   text-decoration: underline;
 }
 
+.yt-icon {
+  width: 1.1em;
+  height: 1.1em;
+  vertical-align: middle;
+  margin-left: 4px;
+}
+
 #button-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
