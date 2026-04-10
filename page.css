@@ -6,30 +6,35 @@
 
 body {
   font-family: "Hiragino Sans", "Noto Sans JP", sans-serif;
-  background: #fff5f9;
+  background: linear-gradient(160deg, #dcfce7 0%, #f0fdf4 50%, #d1fae5 100%);
+  background-attachment: fixed;
   color: #2d2d2d;
   min-height: 100vh;
-  padding: 32px 16px 64px;
+  padding: 40px 16px 64px;
 }
 
 header {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 48px;
 }
 
 header h1 {
-  font-size: clamp(1.4rem, 4vw, 2rem);
-  color: #d63384;
-  margin-bottom: 8px;
+  font-size: clamp(1.6rem, 5vw, 2.4rem);
+  font-weight: 800;
+  color: #16a34a;
+  text-shadow: 0 2px 8px rgba(34, 197, 94, 0.2);
+  letter-spacing: 0.02em;
+  margin-bottom: 10px;
 }
 
 header p {
   font-size: 0.95rem;
-  color: #888;
+  color: #6b7280;
 }
 
 header a {
-  color: #d63384;
+  color: #16a34a;
+  font-weight: 600;
   text-decoration: none;
 }
 
@@ -40,8 +45,8 @@ header a:hover {
 #button-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 12px;
-  max-width: 900px;
+  gap: 14px;
+  max-width: 920px;
   margin: 0 auto;
 }
 
@@ -49,29 +54,40 @@ header a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 14px 8px;
-  border: 2px solid #ffd6e8;
-  border-radius: 14px;
+  padding: 16px 8px;
+  border: 2px solid #bbf7d0;
+  border-radius: 20px;
   background: #fff;
   color: #2d2d2d;
   font-size: 1rem;
+  font-weight: 600;
   font-family: inherit;
   cursor: pointer;
-  transition: background 0.12s ease, border-color 0.12s ease, transform 0.1s ease;
+  box-shadow: 0 2px 8px rgba(34, 197, 94, 0.1);
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
   user-select: none;
 }
 
 .voice-btn:hover {
-  background: #fff0f6;
-  border-color: #ff6b9d;
+  background: #f0fdf4;
+  border-color: #22c55e;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(34, 197, 94, 0.2);
 }
 
 .voice-btn:active {
-  transform: scale(0.95);
+  transform: scale(0.93);
+  box-shadow: 0 1px 4px rgba(34, 197, 94, 0.1);
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+  50% { box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
 }
 
 .voice-btn.playing {
-  background: #ff6b9d;
-  border-color: #ff6b9d;
+  background: #22c55e;
+  border-color: #16a34a;
   color: #fff;
+  animation: pulse 1.2s ease infinite;
 }
