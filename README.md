@@ -88,6 +88,9 @@ const SOUNDS = [
 
 ## 更新履歴
 
+### v0.3.4
+- `removeButton()` 実行時に `onOutsideClick` リスナーを解除し、メモリリークを修正
+
 ### v0.3.3
 - `manifest.json` にアイコンを追加（`chrome://extensions` でアイコンが表示されるように）
 
