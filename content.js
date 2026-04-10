@@ -89,6 +89,9 @@ function injectButton(anchor) {
   anchor.appendChild(container);
   console.log("[delu-voice] dropdown injected into", anchor);
 
+  // Expose closePanel so removeButton() can clean up the listener
+  container._closePanel = closePanel;
+
   function openPanel() {
     panel.classList.add("open");
     document.getElementById("delu-voice-arrow").textContent = "▲";
@@ -113,7 +116,10 @@ function isDelutayaPage() {
 
 function removeButton() {
   const container = document.getElementById("delu-voice-container");
-  if (container) container.remove();
+  if (container) {
+    if (typeof container._closePanel === "function") container._closePanel();
+    container.remove();
+  }
 }
 
 function onNavigate() {
