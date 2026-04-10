@@ -82,11 +82,32 @@ const SOUNDS = [
 ];
 ```
 
+## トラブルシューティング
+
+### ボタンが表示されない
+
+**YouTubeのSPA遷移後にボタンが表示されない場合**
+
+YouTube はシングルページアプリケーション（SPA）のため、ページ内リンクで遷移するとコンテンツスクリプトが再実行されません。遷移後にボタンが表示されないことがあります。
+
+対処法: ページをリロード（F5 / Cmd+R）してください。
+
+**YouTubeのDOM構造変更でボタンが表示されない場合**
+
+YouTubeのアップデートによりDOM構造が変わると、ボタンを挿入する場所を見つけられなくなることがあります。
+
+対処法: [Issue](https://github.com/takarin0711/delu-voice-zoo-button/issues) を立てて報告してください。`content.js` 冒頭の `SELECTORS` 配列を更新することで修正できます。
+
+---
+
 ## 元ネタ
 
 面白いから見てね: https://www.youtube.com/watch?v=E0QUFBQphsM
 
 ## 更新履歴
+
+### v0.3.6
+- トラブルシューティングをREADMEに追加
 
 ### v0.3.5
 - `waitForElement` にタイムアウト後のリトライ機能を追加（最大3回）
