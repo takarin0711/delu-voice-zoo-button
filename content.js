@@ -10,7 +10,12 @@ const SELECTORS = [
   "ytd-channel-header-renderer",
 ];
 
-function waitForElement(selectors, callback, timeout = 15000) {
+let waitCancel = null;
+
+function waitForElement(selectors, callback, timeout = 15000, retries = 3) {
+  let cancelled = false;
+  waitCancel = () => { cancelled = true; };
+
   const find = () => {
     for (const sel of selectors) {
       const el = document.querySelector(sel);
@@ -33,9 +38,15 @@ function waitForElement(selectors, callback, timeout = 15000) {
   observer.observe(document.body, { childList: true, subtree: true });
   setTimeout(() => {
     observer.disconnect();
-    console.log("[delu-voice] timeout — none of these selectors found:", selectors);
-    console.log("[delu-voice] ytd-channel-header-renderer:", document.querySelector("ytd-channel-header-renderer"));
-    console.log("[delu-voice] #subscribe-button:", document.querySelector("#subscribe-button"));
+    if (cancelled) return;
+    if (retries > 0) {
+      console.log(`[delu-voice] timeout — retrying (${retries} left):`, selectors);
+      waitForElement(selectors, callback, timeout, retries - 1);
+    } else {
+      console.log("[delu-voice] timeout — none of these selectors found:", selectors);
+      console.log("[delu-voice] ytd-channel-header-renderer:", document.querySelector("ytd-channel-header-renderer"));
+      console.log("[delu-voice] #subscribe-button:", document.querySelector("#subscribe-button"));
+    }
   }, timeout);
 }
 
@@ -123,6 +134,7 @@ function removeButton() {
 }
 
 function onNavigate() {
+  if (typeof waitCancel === "function") waitCancel();
   if (isDelutayaPage()) {
     waitForElement(SELECTORS, injectButton);
   } else {
