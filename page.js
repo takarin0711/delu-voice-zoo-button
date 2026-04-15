@@ -46,6 +46,9 @@ SOUNDS.forEach(({ label, file }) => {
   const btn = document.createElement("button");
   btn.className = "voice-btn";
   btn.textContent = label;
+  btn.addEventListener("animationend", (e) => {
+    if (e.animationName === "card-enter") btn.classList.add("card-entered");
+  }, { once: true });
   btn.addEventListener("click", () => playSound(file, btn));
   grid.appendChild(btn);
 });

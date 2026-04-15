@@ -370,6 +370,14 @@ header a:hover {
   animation: wave-bars 1.0s linear infinite;
 }
 
+/* card-entered: 入場アニメーション完了後に付与。再トリガーを防ぐ */
+.voice-btn.card-entered {
+  animation: none;
+}
+.voice-btn.card-entered.playing {
+  animation: pulse 1.6s ease-in-out infinite;
+}
+
 /* ── Card entrance animation ─────────────────── */
 
 @keyframes card-enter {
