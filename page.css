@@ -236,7 +236,7 @@ header a:hover {
   border-radius: 18px;
 
   color: var(--text);
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 700;
   font-family: inherit;
   letter-spacing: 0.03em;
@@ -451,7 +451,7 @@ header a:hover {
 
   .voice-btn {
     min-height: 64px;
-    font-size: 1.1rem;
+    font-size: 1rem;
     padding: 10px 10px 14px;
     border-radius: 14px;
   }
